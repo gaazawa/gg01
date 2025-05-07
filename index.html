@@ -1,4 +1,200 @@
 <!DOCTYPE html>
 <html lang="id">
-<!-- (konten HTML di sini, dipotong untuk singkat) -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistem Pernapasan Manusia - Biologi Kelas XI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f8ff;
+    }
+    header {
+      background-color: #0077b6;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      padding: 2rem;
+    }
+    section {
+      margin-bottom: 2rem;
+    }
+    .quiz {
+      margin-top: 2rem;
+    }
+    .question {
+      margin-bottom: 1rem;
+    }
+    button {
+      background-color: #0096c7;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005f73;
+    }
+    iframe {
+      width: 100%;
+      height: 360px;
+      border: none;
+    }
+    .animation {
+      text-align: center;
+    }
+    .tts-button {
+      margin-top: 1rem;
+    }
+    .summary {
+      background-color: #dff6f0;
+      padding: 1rem;
+      border-left: 5px solid #00b894;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 1rem;
+    }
+    .form-section {
+      background-color: #eaf4fb;
+      padding: 1rem;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sistem Pernapasan Manusia</h1>
+    <p>Media Pembelajaran Biologi Kelas XI</p>
+  </header>
+
+  <main>
+    <section id="materi">
+      <h2>Pengantar</h2>
+      <p id="materiText">Sistem pernapasan manusia terdiri dari organ-organ seperti hidung, faring, laring, trakea, bronkus, dan paru-paru. Fungsi utama sistem ini adalah untuk mengambil oksigen dan mengeluarkan karbon dioksida.</p>
+      <button class="tts-button" onclick="speakText()">🔊 Dengarkan Penjelasan</button>
+    </section>
+
+    <section id="gambar">
+      <h2>Ilustrasi Sistem Pernapasan</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Respiratory_system_complete_en.svg/640px-Respiratory_system_complete_en.svg.png" alt="Sistem Pernapasan Manusia" style="max-width: 100%; height: auto;">
+    </section>
+
+    <section id="video">
+      <h2>Video Penjelasan Guru</h2>
+      <iframe src="https://www.youtube.com/embed/bHZsvBdUC2I" title="Video Sistem Pernapasan Manusia" allowfullscreen></iframe>
+    </section>
+
+    <section id="simulasi" class="animation">
+      <h2>Simulasi Pertukaran Gas</h2>
+      <p><em>Simulasi sederhana: Perhatikan bagaimana oksigen masuk ke alveolus dan karbon dioksida keluar ke udara.</em></p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Gas_exchange_in_the_alveolus_%28new%29.gif" alt="Simulasi Pertukaran Gas" style="max-width: 100%; height: auto;">
+    </section>
+
+    <section id="kuis" class="quiz">
+      <h2>Kuis Interaktif</h2>
+      <div class="question">
+        <p>1. Organ utama tempat pertukaran gas adalah...</p>
+        <button onclick="checkAnswer('a', 1)">a. Hidung</button>
+        <button onclick="checkAnswer('b', 1)">b. Paru-paru</button>
+        <button onclick="checkAnswer('c', 1)">c. Alveolus</button>
+      </div>
+      <div class="question">
+        <p>2. Jalur udara dari hidung menuju paru-paru secara berurutan adalah...</p>
+        <button onclick="checkAnswer('a', 2)">a. Hidung → Trakea → Bronkus → Faring</button>
+        <button onclick="checkAnswer('b', 2)">b. Hidung → Faring → Laring → Trakea → Bronkus</button>
+        <button onclick="checkAnswer('c', 2)">c. Hidung → Laring → Bronkus → Paru-paru</button>
+      </div>
+      <p id="feedback"></p>
+    </section>
+
+    <section id="rangkuman" class="summary">
+      <h2>Rangkuman Materi</h2>
+      <ul id="summaryContent">
+        <li>Sistem pernapasan manusia meliputi hidung, faring, laring, trakea, bronkus, dan paru-paru.</li>
+        <li>Fungsi utama sistem pernapasan adalah mengambil oksigen dari udara dan mengeluarkan karbon dioksida dari tubuh.</li>
+        <li>Pertukaran gas terjadi di alveolus, yaitu kantung udara kecil dalam paru-paru yang dikelilingi kapiler darah.</li>
+        <li>Udara masuk melalui hidung, melewati faring, laring, trakea, bronkus, dan akhirnya sampai ke paru-paru.</li>
+        <li>Proses pernapasan dibagi menjadi inspirasi (masuknya udara) dan ekspirasi (keluarnya udara).</li>
+      </ul>
+      <button onclick="unduhPDF()">📄 Unduh Rangkuman (PDF)</button>
+    </section>
+
+    <section id="evaluasi">
+      <h2>Evaluasi Akhir</h2>
+      <form id="evaluasiForm" class="form-section">
+        <label>1. Apa fungsi utama dari alveolus dalam sistem pernapasan manusia?</label><br>
+        <textarea name="jawaban1"></textarea>
+
+        <label>2. Jelaskan jalur pernapasan mulai dari hidung hingga paru-paru!</label><br>
+        <textarea name="jawaban2"></textarea>
+
+        <label>3. Mengapa pertukaran gas lebih efektif terjadi di alveolus?</label><br>
+        <textarea name="jawaban3"></textarea>
+
+        <label>4. Bagaimana peran diafragma dalam proses inspirasi dan ekspirasi?</label><br>
+        <textarea name="jawaban4"></textarea>
+
+        <label>5. Sebutkan dua gangguan yang bisa terjadi pada sistem pernapasan dan bagaimana pencegahannya!</label><br>
+        <textarea name="jawaban5"></textarea>
+
+        <button type="button" onclick="kirimJawaban()">📧 Kirim Jawaban</button>
+        <p id="statusKirim"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    function checkAnswer(answer, questionNumber) {
+      const feedback = document.getElementById("feedback");
+      if (questionNumber === 1 && answer === "c") {
+        feedback.textContent = "✅ Benar! Alveolus adalah tempat pertukaran gas utama.";
+        feedback.style.color = "green";
+      } else if (questionNumber === 2 && answer === "b") {
+        feedback.textContent = "✅ Tepat! Jalur yang benar adalah: Hidung → Faring → Laring → Trakea → Bronkus.";
+        feedback.style.color = "green";
+      } else {
+        feedback.textContent = "❌ Jawaban kurang tepat. Coba perhatikan urutan atau fungsi organ kembali.";
+        feedback.style.color = "red";
+      }
+    }
+
+    function speakText() {
+      const text = document.getElementById("materiText").textContent;
+      const speech = new SpeechSynthesisUtterance(text);
+      speech.lang = "id-ID";
+      window.speechSynthesis.speak(speech);
+    }
+
+    async function unduhPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      const content = document.getElementById("summaryContent").innerText;
+      doc.text("Rangkuman Materi - Sistem Pernapasan Manusia", 10, 10);
+      doc.text(content, 10, 20);
+      doc.save("rangkuman_sistem_pernapasan.pdf");
+    }
+
+    function kirimJawaban() {
+      const form = document.getElementById("evaluasiForm");
+      const data = new FormData(form);
+      let hasil = "Jawaban Evaluasi:\n";
+      for (let [key, value] of data.entries()) {
+        hasil += `${key}: ${value}\n\n`;
+      }
+      console.log(hasil);
+      document.getElementById("statusKirim").textContent = "Jawaban berhasil dikirim (simulasi)!";
+      document.getElementById("statusKirim").style.color = "green";
+    }
+  </script>
+</body>
+</html>
 </html>
